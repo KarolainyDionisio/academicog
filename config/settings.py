@@ -32,9 +32,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SssionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postqresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'academicog',
         'USER': 'postgres',
         'PASSWORD': '123456',
@@ -110,11 +110,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-TATIC_ROOT = os.path.join(STATIC_URL, "static")
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(STATIC_URL, "static")
 STATICFILES_DIRS = [
-os.path.join(BASE_DIR, "app/static/"),
-]
+    os.path.join(BASE_DIR, "app/static/"),
+    ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
